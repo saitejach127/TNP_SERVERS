@@ -20,7 +20,7 @@ var server = net.createServer((socket) => {
             socket.destroy();
         } else {
             console.log("to judge");
-            isbusy = true;
+            // isbusy = true;
             setTimeout(() => {
                 if(data["rounds"].length == 0){
                     var client = new net.Socket();
@@ -30,7 +30,7 @@ var server = net.createServer((socket) => {
                     });
                 }
             },4000);
-            isbusy = false;
+            // isbusy = false;
         }
         
     })

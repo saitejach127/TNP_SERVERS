@@ -80,49 +80,49 @@ function checkStatus(){
 		"type" : "beat"
 	}
 	client.write(JSON.stringify(data));
-	var client = new net.Socket();
-	client.connect(8002, '127.0.0.1', function() {
-		var data = {
-			"type" : "beat"
-		}
-		client.write(JSON.stringify(data));
-	});
+	// var client = new net.Socket();
+	// client.connect(8002, '127.0.0.1', function() {
+	// 	var data = {
+	// 		"type" : "beat"
+	// 	}
+	// 	client.write(JSON.stringify(data));
+	// });
 
-	client.on('data', function(data) {
-		data = JSON.parse(data);
-		if(data["busy"]==true){
-			isR2 = false;
-		} else {
-			isR2 = true;
-		}
-		client.destroy(); 
-	});
-	var client = new net.Socket();
-	client.connect(8003, '127.0.0.1', function() {
-		var data = {
-			"type" : "beat"
-		}
-		client.write(JSON.stringify(data));
-	});
+	// client.on('data', function(data) {
+	// 	data = JSON.parse(data);
+	// 	if(data["busy"]==true){
+	// 		isR2 = false;
+	// 	} else {
+	// 		isR2 = true;
+	// 	}
+	// 	client.destroy(); 
+	// });
+	// var client = new net.Socket();
+	// client.connect(8003, '127.0.0.1', function() {
+	// 	var data = {
+	// 		"type" : "beat"
+	// 	}
+	// 	client.write(JSON.stringify(data));
+	// });
 
-	client.on('data', function(data) {
-		data = JSON.parse(data);
-		if(data["busy"]==true){
-			isR3 = false;
-		} else {
-			isR3 = true;
-		}
-		client.destroy(); 
-	});
-	if(isR1){
+	// client.on('data', function(data) {
+	// 	data = JSON.parse(data);
+	// 	if(data["busy"]==true){
+	// 		isR3 = false;
+	// 	} else {
+	// 		isR3 = true;
+	// 	}
+	// 	client.destroy(); 
+	// });
+	// if(isR1){
 		return "R1";
-	} else if(isR2){
-		return "R2";
-	} else if(isR3){
-		return "R3";
-	} else {
-		return "none";
-	}
+	// } else if(isR2){
+	// 	return "R2";
+	// } else if(isR3){
+	// 	return "R3";
+	// } else {
+	// 	return "none";
+	// }
 }
 
 server.listen(8000, '127.0.0.1',() => { console.log("aptitude : ", server.address()) });
